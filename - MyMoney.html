@@ -1,0 +1,3423 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://127.0.0.1:8081/FavoriteView -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> - MyMoney</title>
+    <link rel="stylesheet" href="./- MyMoney_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./- MyMoney_files/site.css">
+    <script src="./- MyMoney_files/jquery.min.js.下載"></script>
+<script src="chrome-extension://jhffgcfmcckgmioipfnmbannkpncfipo/util.js"></script><script src="chrome-extension://jhffgcfmcckgmioipfnmbannkpncfipo/pagejs.js"></script></head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="http://127.0.0.1:8081/">十根筷子</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="http://127.0.0.1:8081/Stock">Stock</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="http://127.0.0.1:8081/FavoriteView">追蹤股</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="http://127.0.0.1:8081/Batch">資料更新統計(python)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="http://127.0.0.1:8081/TransactionRecord">交易記錄</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="http://127.0.0.1:8081/CashJournal">現金日記賬</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="http://127.0.0.1:8081/Member">家庭成員</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <link rel="stylesheet" href="./- MyMoney_files/jquery-ui.css">
+<script src="./- MyMoney_files/jquery-ui.js.下載"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        數字 (5287)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;5287&#39;);">
+                        <div id="div_5287" style="display: none;">
+                            <div><a href="https://histock.tw/stock/5287/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/5287/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/5287/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=5287" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=5287" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;5287&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;5287&#39;,
+    &#39;數字&#39;, &#39;190&#39;);">
+                            <input type="hidden" id="hdnMemo_5287" value="591, 8857,市佔近8成, 有護城河, 配息率高且穩定">
+                            <input type="hidden" id="hdnResearch_5287" value="">
+                            <input type="hidden" id="hdnStrategy_5287" value="">
+                            <input type="hidden" id="hdnSort_5287" value="100">
+                        </div>
+                        <div onclick="ShowDiv(&#39;5287&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>187</div></td>
+                    <td><div>追蹤價</div><div>190</div></td>
+                    <td><div>最新EPS</div><div>6.41</div></td>
+                    <td><div>預測EPS</div><div>11.34</div></td>
+                </tr>
+            </tbody></table>
+            <table id="5287" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>11.34</td>
+                    <td>12.54</td>
+                    <td>13.33</td>
+                    <td>13.07</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>10.562</td>
+                    <td>11.6</td>
+                    <td>11.46</td>
+                    <td>11.08</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>211.24</td>
+                    <td>232</td>
+                    <td>229.2</td>
+                    <td>221.6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>71.22%</td>
+                    <td>76.57%</td>
+                    <td>77.5%</td>
+                    <td>55.36%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>39.32%</td>
+                    <td>45.96%</td>
+                    <td>46.28%</td>
+                    <td>33.06%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>42.96%</td>
+                    <td>49.19%</td>
+                    <td>48.73%</td>
+                    <td>34.8%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>34.71%</td>
+                    <td>39.11%</td>
+                    <td>39.1%</td>
+                    <td>27.93%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">591, 8857,市佔近8成, 有護城河, 配息率高且穩定</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        長虹 (5534)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;5534&#39;);">
+                        <div id="div_5534" style="display:none;">
+                            <div><a href="https://histock.tw/stock/5534/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/5534/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/5534/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=5534" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=5534" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;5534&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;5534&#39;,
+    &#39;長虹&#39;, &#39;72&#39;);">
+                            <input type="hidden" id="hdnMemo_5534" value="營建股F4, 配息穩定, 平均有80元以上實力">
+                            <input type="hidden" id="hdnResearch_5534" value="09年以來, 每年配息都有4元以上, 除了15年。
+以5%來算, 80以下算是安全">
+                            <input type="hidden" id="hdnStrategy_5534" value="72以下可以安心承接, 80以上可以酙量出貨">
+                            <input type="hidden" id="hdnSort_5534" value="200">
+                        </div>
+                        <div onclick="ShowDiv(&#39;5534&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>71.6</div></td>
+                    <td><div>追蹤價</div><div>72</div></td>
+                    <td><div>最新EPS</div><div>5.81</div></td>
+                    <td><div>預測EPS</div><div>10.11</div></td>
+                </tr>
+            </tbody></table>
+            <table id="5534" class="table" style="">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>10.11</td>
+                    <td>8.12</td>
+                    <td>9.84</td>
+                    <td>8.76</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>7.229</td>
+                    <td>6.1</td>
+                    <td>6.1</td>
+                    <td>5.23</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>144.58</td>
+                    <td>122</td>
+                    <td>122</td>
+                    <td>104.6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>41.6%</td>
+                    <td>34.51%</td>
+                    <td>36.94%</td>
+                    <td>26.39%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>34.18%</td>
+                    <td>27.31%</td>
+                    <td>30.56%</td>
+                    <td>21.83%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>34.26%</td>
+                    <td>30.5%</td>
+                    <td>35.15%</td>
+                    <td>25.11%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>29.17%</td>
+                    <td>26.06%</td>
+                    <td>31.22%</td>
+                    <td>22.3%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4">09年以來, 每年配息都有4元以上, 除了15年。
+以5%來算, 80以下算是安全</td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4">72以下可以安心承接, 80以上可以酙量出貨</td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">營建股F4, 配息穩定, 平均有80元以上實力</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        麗豐-KY (4137)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;4137&#39;);">
+                        <div id="div_4137" style="display:none;">
+                            <div><a href="https://histock.tw/stock/4137/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/4137/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/4137/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=4137" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=4137" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;4137&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;4137&#39;,
+    &#39;麗豐-KY&#39;, &#39;160&#39;);">
+                            <input type="hidden" id="hdnMemo_4137" value="年平均有配8以上的實力,毛利也高">
+                            <input type="hidden" id="hdnResearch_4137" value="">
+                            <input type="hidden" id="hdnStrategy_4137" value="">
+                            <input type="hidden" id="hdnSort_4137" value="300">
+                        </div>
+                        <div onclick="ShowDiv(&#39;4137&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>151.5</div></td>
+                    <td><div>追蹤價</div><div>160</div></td>
+                    <td><div>最新EPS</div><div>4.27</div></td>
+                    <td><div>預測EPS</div><div>9.39</div></td>
+                </tr>
+            </tbody></table>
+            <table id="4137" class="table" style="">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>9.39</td>
+                    <td>15.72</td>
+                    <td>13.99</td>
+                    <td>13.41</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>7.241</td>
+                    <td>11.18</td>
+                    <td>9.32</td>
+                    <td>9.08</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>144.82</td>
+                    <td>223.6</td>
+                    <td>186.4</td>
+                    <td>181.6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>79.95%</td>
+                    <td>83.89%</td>
+                    <td>83.03%</td>
+                    <td>59.3%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>17.91%</td>
+                    <td>32%</td>
+                    <td>30.93%</td>
+                    <td>22.1%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>11.65%</td>
+                    <td>37.63%</td>
+                    <td>34.93%</td>
+                    <td>24.95%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>4.77%</td>
+                    <td>25.66%</td>
+                    <td>24.3%</td>
+                    <td>17.35%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">年平均有配8以上的實力,毛利也高</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        裕融 (9941)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;9941&#39;);">
+                        <div id="div_9941" style="display:none;">
+                            <div><a href="https://histock.tw/stock/9941/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/9941/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/9941/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=9941" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=9941" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;9941&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;9941&#39;,
+    &#39;裕融&#39;, &#39;120&#39;);">
+                            <input type="hidden" id="hdnMemo_9941" value="">
+                            <input type="hidden" id="hdnResearch_9941" value="">
+                            <input type="hidden" id="hdnStrategy_9941" value="">
+                            <input type="hidden" id="hdnSort_9941" value="400">
+                        </div>
+                        <div onclick="ShowDiv(&#39;9941&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>132.5</div></td>
+                    <td><div>追蹤價</div><div>120</div></td>
+                    <td><div>最新EPS</div><div>6.89</div></td>
+                    <td><div>預測EPS</div><div>12.18</div></td>
+                </tr>
+            </tbody></table>
+            <table id="9941" class="table" style="">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>12.18</td>
+                    <td>9.2</td>
+                    <td>8.87</td>
+                    <td>8.02</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>9.852</td>
+                    <td>4.9</td>
+                    <td>5.08</td>
+                    <td>5.03</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>197.04</td>
+                    <td>98</td>
+                    <td>101.6</td>
+                    <td>100.6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>58.47%</td>
+                    <td>50.14%</td>
+                    <td>48.01%</td>
+                    <td>34.29%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>27.19%</td>
+                    <td>15.69%</td>
+                    <td>15.75%</td>
+                    <td>13.29%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>23.18%</td>
+                    <td>16.25%</td>
+                    <td>16.34%</td>
+                    <td>13.55%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>15.78%</td>
+                    <td>12.47%</td>
+                    <td>12.49%</td>
+                    <td>10.41%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4"></td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        茂順 (9942)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;9942&#39;);">
+                        <div id="div_9942" style="display:none;">
+                            <div><a href="https://histock.tw/stock/9942/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/9942/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/9942/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=9942" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=9942" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;9942&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;9942&#39;,
+    &#39;茂順&#39;, &#39;83&#39;);">
+                            <input type="hidden" id="hdnMemo_9942" value="獲利配息穩定, 油車、電動車都會用到油封,台灣油封界龍頭">
+                            <input type="hidden" id="hdnResearch_9942" value="">
+                            <input type="hidden" id="hdnStrategy_9942" value="">
+                            <input type="hidden" id="hdnSort_9942" value="500">
+                        </div>
+                        <div onclick="ShowDiv(&#39;9942&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>103.5</div></td>
+                    <td><div>追蹤價</div><div>83</div></td>
+                    <td><div>最新EPS</div><div>3.17</div></td>
+                    <td><div>預測EPS</div><div>6.03</div></td>
+                </tr>
+            </tbody></table>
+            <table id="9942" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>6.03</td>
+                    <td>5.35</td>
+                    <td>5.53</td>
+                    <td>5.52</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>4.818</td>
+                    <td>4.2</td>
+                    <td>4.16</td>
+                    <td>4.11</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>96.36</td>
+                    <td>84</td>
+                    <td>83.2</td>
+                    <td>82.2</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>32.84%</td>
+                    <td>33.91%</td>
+                    <td>34.16%</td>
+                    <td>24.4%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>18.03%</td>
+                    <td>18.43%</td>
+                    <td>19.14%</td>
+                    <td>13.67%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>19.22%</td>
+                    <td>19.13%</td>
+                    <td>19.97%</td>
+                    <td>14.27%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>13.05%</td>
+                    <td>13.7%</td>
+                    <td>14.25%</td>
+                    <td>10.18%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">獲利配息穩定, 油車、電動車都會用到油封,台灣油封界龍頭</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        葡萄王 (1707)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;1707&#39;);">
+                        <div id="div_1707" style="display:none;">
+                            <div><a href="https://histock.tw/stock/1707/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/1707/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/1707/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=1707" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=1707" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;1707&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;1707&#39;,
+    &#39;葡萄王&#39;, &#39;130&#39;);">
+                            <input type="hidden" id="hdnMemo_1707" value="台灣人愛買保健食品, 台灣直銷前三大,葡眾股本低, 有賺5股以上的實力,持股6成葡眾">
+                            <input type="hidden" id="hdnResearch_1707" value="">
+                            <input type="hidden" id="hdnStrategy_1707" value="">
+                            <input type="hidden" id="hdnSort_1707" value="600">
+                        </div>
+                        <div onclick="ShowDiv(&#39;1707&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>128.5</div></td>
+                    <td><div>追蹤價</div><div>130</div></td>
+                    <td><div>最新EPS</div><div>4.19</div></td>
+                    <td><div>預測EPS</div><div>9.39</div></td>
+                </tr>
+            </tbody></table>
+            <table id="1707" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>9.39</td>
+                    <td>9.26</td>
+                    <td>9.48</td>
+                    <td>9.32</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>6.328</td>
+                    <td>6.47</td>
+                    <td>6.5</td>
+                    <td>6.2</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>126.56</td>
+                    <td>129.4</td>
+                    <td>130</td>
+                    <td>124</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>83.93%</td>
+                    <td>81.42%</td>
+                    <td>81.6%</td>
+                    <td>58.28%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>24.55%</td>
+                    <td>24.48%</td>
+                    <td>24.54%</td>
+                    <td>19.57%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>25.77%</td>
+                    <td>25.49%</td>
+                    <td>25.64%</td>
+                    <td>20.19%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>20.91%</td>
+                    <td>20.37%</td>
+                    <td>20.41%</td>
+                    <td>16.08%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">台灣人愛買保健食品, 台灣直銷前三大,葡眾股本低, 有賺5股以上的實力,持股6成葡眾</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        群光 (2385)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;2385&#39;);">
+                        <div id="div_2385" style="display:none;">
+                            <div><a href="https://histock.tw/stock/2385/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/2385/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/2385/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=2385" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=2385" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;2385&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;2385&#39;,
+    &#39;群光&#39;, &#39;70&#39;);">
+                            <input type="hidden" id="hdnMemo_2385" value="平均有配4元的實力, 保守的話, 70以下可進">
+                            <input type="hidden" id="hdnResearch_2385" value="">
+                            <input type="hidden" id="hdnStrategy_2385" value="">
+                            <input type="hidden" id="hdnSort_2385" value="700">
+                        </div>
+                        <div onclick="ShowDiv(&#39;2385&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>79.9</div></td>
+                    <td><div>追蹤價</div><div>70</div></td>
+                    <td><div>最新EPS</div><div>4.91</div></td>
+                    <td><div>預測EPS</div><div>9.78</div></td>
+                </tr>
+            </tbody></table>
+            <table id="2385" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>9.78</td>
+                    <td>8.32</td>
+                    <td>7.21</td>
+                    <td>6.7</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>6.462</td>
+                    <td>5.07</td>
+                    <td>4.78</td>
+                    <td>4.69</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>129.24</td>
+                    <td>101.4</td>
+                    <td>95.6</td>
+                    <td>93.8</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>17.52%</td>
+                    <td>17.82%</td>
+                    <td>16.98%</td>
+                    <td>12.13%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>8.77%</td>
+                    <td>7.48%</td>
+                    <td>6.67%</td>
+                    <td>4.76%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>9.74%</td>
+                    <td>8.62%</td>
+                    <td>7.83%</td>
+                    <td>5.59%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>7.57%</td>
+                    <td>6.98%</td>
+                    <td>6.31%</td>
+                    <td>4.51%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">平均有配4元的實力, 保守的話, 70以下可進</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        巨路 (6192)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;6192&#39;);">
+                        <div id="div_6192" style="display:none;">
+                            <div><a href="https://histock.tw/stock/6192/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/6192/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/6192/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=6192" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=6192" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;6192&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;6192&#39;,
+    &#39;巨路&#39;, &#39;61&#39;);">
+                            <input type="hidden" id="hdnMemo_6192" value="">
+                            <input type="hidden" id="hdnResearch_6192" value="">
+                            <input type="hidden" id="hdnStrategy_6192" value="">
+                            <input type="hidden" id="hdnSort_6192" value="800">
+                        </div>
+                        <div onclick="ShowDiv(&#39;6192&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>65.5</div></td>
+                    <td><div>追蹤價</div><div>61</div></td>
+                    <td><div>最新EPS</div><div>3.91</div></td>
+                    <td><div>預測EPS</div><div>8.03</div></td>
+                </tr>
+            </tbody></table>
+            <table id="6192" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>8.03</td>
+                    <td>7.21</td>
+                    <td>6.61</td>
+                    <td>6.04</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>4.895</td>
+                    <td>3.33</td>
+                    <td>3.06</td>
+                    <td>3.04</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>97.9</td>
+                    <td>66.6</td>
+                    <td>61.2</td>
+                    <td>60.8</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>34.5%</td>
+                    <td>31.27%</td>
+                    <td>31.22%</td>
+                    <td>22.3%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>18.41%</td>
+                    <td>16.04%</td>
+                    <td>15.79%</td>
+                    <td>11.28%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>19.17%</td>
+                    <td>16.19%</td>
+                    <td>16.01%</td>
+                    <td>11.44%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>12.81%</td>
+                    <td>12.48%</td>
+                    <td>12.22%</td>
+                    <td>8.73%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4"></td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        聯發科 (2454)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;2454&#39;);">
+                        <div id="div_2454" style="display:none;">
+                            <div><a href="https://histock.tw/stock/2454/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/2454/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/2454/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=2454" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=2454" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;2454&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;2454&#39;,
+    &#39;聯發科&#39;, &#39;250&#39;);">
+                            <input type="hidden" id="hdnMemo_2454" value="台灣第一大IC設計股">
+                            <input type="hidden" id="hdnResearch_2454" value="">
+                            <input type="hidden" id="hdnStrategy_2454" value="">
+                            <input type="hidden" id="hdnSort_2454" value="900">
+                        </div>
+                        <div onclick="ShowDiv(&#39;2454&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>578</div></td>
+                    <td><div>追蹤價</div><div>250</div></td>
+                    <td><div>最新EPS</div><div>43.41</div></td>
+                    <td><div>預測EPS</div><div>81.32</div></td>
+                </tr>
+            </tbody></table>
+            <table id="2454" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>81.32</td>
+                    <td>37.09</td>
+                    <td>28.02</td>
+                    <td>24.55</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>52.954</td>
+                    <td>10.67</td>
+                    <td>9.5</td>
+                    <td>11.5</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>1059.08</td>
+                    <td>213.4</td>
+                    <td>190</td>
+                    <td>230</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>49.29%</td>
+                    <td>44.16%</td>
+                    <td>41.32%</td>
+                    <td>29.51%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>25.16%</td>
+                    <td>14.55%</td>
+                    <td>10.86%</td>
+                    <td>7.76%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>26.29%</td>
+                    <td>16.95%</td>
+                    <td>14.41%</td>
+                    <td>10.3%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>22.87%</td>
+                    <td>14.8%</td>
+                    <td>12.61%</td>
+                    <td>9.01%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">台灣第一大IC設計股</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        聯邦銀 (2838)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;2838&#39;);">
+                        <div id="div_2838" style="display:none;">
+                            <div><a href="https://histock.tw/stock/2838/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/2838/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/2838/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=2838" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=2838" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;2838&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;2838&#39;,
+    &#39;聯邦銀&#39;, &#39;10&#39;);">
+                            <input type="hidden" id="hdnMemo_2838" value="長期獲利, 無虧損紀錄, 10元以下安心存, 配股居多">
+                            <input type="hidden" id="hdnResearch_2838" value="">
+                            <input type="hidden" id="hdnStrategy_2838" value="">
+                            <input type="hidden" id="hdnSort_2838" value="1000">
+                        </div>
+                        <div onclick="ShowDiv(&#39;2838&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>14.55</div></td>
+                    <td><div>追蹤價</div><div>10</div></td>
+                    <td><div>最新EPS</div><div>0.21</div></td>
+                    <td><div>預測EPS</div><div>0.47</div></td>
+                </tr>
+            </tbody></table>
+            <table id="2838" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>0.47</td>
+                    <td>0.99</td>
+                    <td>1</td>
+                    <td>1.03</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>0.218</td>
+                    <td>0.03</td>
+                    <td>0.19</td>
+                    <td>0.23</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>4.36</td>
+                    <td>0.6</td>
+                    <td>3.8</td>
+                    <td>4.6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>23.14%</td>
+                    <td>28.96%</td>
+                    <td>28.23%</td>
+                    <td>20.16%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>23.14%</td>
+                    <td>28.96%</td>
+                    <td>28.23%</td>
+                    <td>20.16%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>15.99%</td>
+                    <td>24.73%</td>
+                    <td>23.88%</td>
+                    <td>17.06%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">長期獲利, 無虧損紀錄, 10元以下安心存, 配股居多</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        和潤企業 (6592)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;6592&#39;);">
+                        <div id="div_6592" style="display:none;">
+                            <div><a href="https://histock.tw/stock/6592/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/6592/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/6592/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=6592" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=6592" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;6592&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;6592&#39;,
+    &#39;和潤企業&#39;, &#39;85&#39;);">
+                            <input type="hidden" id="hdnMemo_6592" value="">
+                            <input type="hidden" id="hdnResearch_6592" value="">
+                            <input type="hidden" id="hdnStrategy_6592" value="">
+                            <input type="hidden" id="hdnSort_6592" value="1100">
+                        </div>
+                        <div onclick="ShowDiv(&#39;6592&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>97</div></td>
+                    <td><div>追蹤價</div><div>85</div></td>
+                    <td><div>最新EPS</div><div>3.47</div></td>
+                    <td><div>預測EPS</div><div>6.87</div></td>
+                </tr>
+            </tbody></table>
+            <table id="6592" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>6.87</td>
+                    <td>5.64</td>
+                    <td>5.11</td>
+                    <td>3.65</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>4.384</td>
+                    <td>3.3</td>
+                    <td>2.76</td>
+                    <td>1.97</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>87.68</td>
+                    <td>66</td>
+                    <td>55.2</td>
+                    <td>39.4</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>64.8%</td>
+                    <td>54.89%</td>
+                    <td>32.94%</td>
+                    <td>23.53%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>22.27%</td>
+                    <td>22.25%</td>
+                    <td>15.59%</td>
+                    <td>11.14%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>25.02%</td>
+                    <td>23.81%</td>
+                    <td>16.72%</td>
+                    <td>11.94%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>18.66%</td>
+                    <td>18.13%</td>
+                    <td>12.73%</td>
+                    <td>9.09%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4"></td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        政伸 (8481)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;8481&#39;);">
+                        <div id="div_8481" style="display:none;">
+                            <div><a href="https://histock.tw/stock/8481/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/8481/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/8481/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=8481" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=8481" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;8481&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;8481&#39;,
+    &#39;政伸&#39;, &#39;55&#39;);">
+                            <input type="hidden" id="hdnMemo_8481" value="主要是自行車貼標收入,毛利有50%,有配3.3元實力">
+                            <input type="hidden" id="hdnResearch_8481" value="">
+                            <input type="hidden" id="hdnStrategy_8481" value="">
+                            <input type="hidden" id="hdnSort_8481" value="1200">
+                        </div>
+                        <div onclick="ShowDiv(&#39;8481&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>55.5</div></td>
+                    <td><div>追蹤價</div><div>55</div></td>
+                    <td><div>最新EPS</div><div>2.89</div></td>
+                    <td><div>預測EPS</div><div>5.44</div></td>
+                </tr>
+            </tbody></table>
+            <table id="8481" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>5.44</td>
+                    <td>7.34</td>
+                    <td>5.75</td>
+                    <td>5.11</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>4.406</td>
+                    <td>4.17</td>
+                    <td>3.51</td>
+                    <td>3.02</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>88.12</td>
+                    <td>83.4</td>
+                    <td>70.2</td>
+                    <td>60.4</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>49.39%</td>
+                    <td>49.99%</td>
+                    <td>48.62%</td>
+                    <td>34.73%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>27.34%</td>
+                    <td>23.96%</td>
+                    <td>24%</td>
+                    <td>17.14%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>31.73%</td>
+                    <td>41.35%</td>
+                    <td>34.66%</td>
+                    <td>24.75%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>25.22%</td>
+                    <td>32.48%</td>
+                    <td>27.21%</td>
+                    <td>19.43%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">主要是自行車貼標收入,毛利有50%,有配3.3元實力</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        安力-KY (5223)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;5223&#39;);">
+                        <div id="div_5223" style="display:none;">
+                            <div><a href="https://histock.tw/stock/5223/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/5223/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/5223/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=5223" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=5223" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;5223&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;5223&#39;,
+    &#39;安力-KY&#39;, &#39;32&#39;);">
+                            <input type="hidden" id="hdnMemo_5223" value="營收持續成長">
+                            <input type="hidden" id="hdnResearch_5223" value="">
+                            <input type="hidden" id="hdnStrategy_5223" value="">
+                            <input type="hidden" id="hdnSort_5223" value="1300">
+                        </div>
+                        <div onclick="ShowDiv(&#39;5223&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>40.6</div></td>
+                    <td><div>追蹤價</div><div>32</div></td>
+                    <td><div>最新EPS</div><div>2.51</div></td>
+                    <td><div>預測EPS</div><div>5.31</div></td>
+                </tr>
+            </tbody></table>
+            <table id="5223" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>5.31</td>
+                    <td>5.12</td>
+                    <td>4.4</td>
+                    <td>3.14</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>2.777</td>
+                    <td>2.33</td>
+                    <td>1.92</td>
+                    <td>1.37</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>55.54</td>
+                    <td>46.6</td>
+                    <td>38.4</td>
+                    <td>27.4</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>26.52%</td>
+                    <td>30.2%</td>
+                    <td>24.63%</td>
+                    <td>17.59%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>10.01%</td>
+                    <td>13.96%</td>
+                    <td>14.19%</td>
+                    <td>10.14%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>12.94%</td>
+                    <td>13.41%</td>
+                    <td>14.28%</td>
+                    <td>10.2%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>10%</td>
+                    <td>10.75%</td>
+                    <td>11.27%</td>
+                    <td>8.05%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">營收持續成長</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        新普 (6121)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;6121&#39;);">
+                        <div id="div_6121" style="display:none;">
+                            <div><a href="https://histock.tw/stock/6121/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/6121/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/6121/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=6121" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=6121" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;6121&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;6121&#39;,
+    &#39;新普&#39;, &#39;240&#39;);">
+                            <input type="hidden" id="hdnMemo_6121" value="電動車概念">
+                            <input type="hidden" id="hdnResearch_6121" value="">
+                            <input type="hidden" id="hdnStrategy_6121" value="">
+                            <input type="hidden" id="hdnSort_6121" value="1400">
+                        </div>
+                        <div onclick="ShowDiv(&#39;6121&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>274</div></td>
+                    <td><div>追蹤價</div><div>240</div></td>
+                    <td><div>最新EPS</div><div>18.6</div></td>
+                    <td><div>預測EPS</div><div>38.31</div></td>
+                </tr>
+            </tbody></table>
+            <table id="6121" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>38.31</td>
+                    <td>27.49</td>
+                    <td>22</td>
+                    <td>18.46</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>23.258</td>
+                    <td>15.03</td>
+                    <td>12.22</td>
+                    <td>10.73</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>465.16</td>
+                    <td>300.6</td>
+                    <td>244.4</td>
+                    <td>214.6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>16.71%</td>
+                    <td>11.93%</td>
+                    <td>10.97%</td>
+                    <td>7.83%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>11.78%</td>
+                    <td>7.6%</td>
+                    <td>6.66%</td>
+                    <td>4.75%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>13.55%</td>
+                    <td>8.75%</td>
+                    <td>7.92%</td>
+                    <td>5.66%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>9.76%</td>
+                    <td>6.29%</td>
+                    <td>5.7%</td>
+                    <td>4.07%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">電動車概念</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        榮昌 (3684)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;3684&#39;);">
+                        <div id="div_3684" style="display:none;">
+                            <div><a href="https://histock.tw/stock/3684/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/3684/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/3684/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=3684" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=3684" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;3684&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;3684&#39;,
+    &#39;榮昌&#39;, &#39;40&#39;);">
+                            <input type="hidden" id="hdnMemo_3684" value="配息穩定, 毛利不高,通信概念股">
+                            <input type="hidden" id="hdnResearch_3684" value="">
+                            <input type="hidden" id="hdnStrategy_3684" value="">
+                            <input type="hidden" id="hdnSort_3684" value="1600">
+                        </div>
+                        <div onclick="ShowDiv(&#39;3684&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>52.1</div></td>
+                    <td><div>追蹤價</div><div>40</div></td>
+                    <td><div>最新EPS</div><div>2.38</div></td>
+                    <td><div>預測EPS</div><div>5.18</div></td>
+                </tr>
+            </tbody></table>
+            <table id="3684" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>5.18</td>
+                    <td>3.39</td>
+                    <td>3.06</td>
+                    <td>3.26</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>4.291</td>
+                    <td>1.73</td>
+                    <td>2.08</td>
+                    <td>2.23</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>85.82</td>
+                    <td>34.6</td>
+                    <td>41.6</td>
+                    <td>44.6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>33.35%</td>
+                    <td>35.16%</td>
+                    <td>35.79%</td>
+                    <td>25.56%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>14.51%</td>
+                    <td>14.17%</td>
+                    <td>14.11%</td>
+                    <td>10.08%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>17.95%</td>
+                    <td>17.74%</td>
+                    <td>16.17%</td>
+                    <td>11.55%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>14.25%</td>
+                    <td>14.85%</td>
+                    <td>13.31%</td>
+                    <td>9.51%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">配息穩定, 毛利不高,通信概念股</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        新麥 (1580)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;1580&#39;);">
+                        <div id="div_1580" style="display:none;">
+                            <div><a href="https://histock.tw/stock/1580/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/1580/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/1580/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=1580" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=1580" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;1580&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;1580&#39;,
+    &#39;新麥&#39;, &#39;109&#39;);">
+                            <input type="hidden" id="hdnMemo_1580" value="長期獲利, 無虧損紀錄, 拉回是買點, 105以下可進">
+                            <input type="hidden" id="hdnResearch_1580" value="">
+                            <input type="hidden" id="hdnStrategy_1580" value="">
+                            <input type="hidden" id="hdnSort_1580" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;1580&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>86.5</div></td>
+                    <td><div>追蹤價</div><div>109</div></td>
+                    <td><div>最新EPS</div><div>3.56</div></td>
+                    <td><div>預測EPS</div><div>10.14</div></td>
+                </tr>
+            </tbody></table>
+            <table id="1580" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>10.14</td>
+                    <td>8.99</td>
+                    <td>9.41</td>
+                    <td>9.72</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>7.524</td>
+                    <td>6.1</td>
+                    <td>6.96</td>
+                    <td>7.18</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>150.48</td>
+                    <td>122</td>
+                    <td>139.2</td>
+                    <td>143.6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>34.38%</td>
+                    <td>39.52%</td>
+                    <td>39.93%</td>
+                    <td>28.52%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>13.69%</td>
+                    <td>15.08%</td>
+                    <td>15.58%</td>
+                    <td>13.17%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>17.25%</td>
+                    <td>15.47%</td>
+                    <td>15.77%</td>
+                    <td>13.14%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>11.83%</td>
+                    <td>11.35%</td>
+                    <td>11.31%</td>
+                    <td>9.57%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">長期獲利, 無虧損紀錄, 拉回是買點, 105以下可進</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        大統益 (1232)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;1232&#39;);">
+                        <div id="div_1232" style="display:none;">
+                            <div><a href="https://histock.tw/stock/1232/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/1232/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/1232/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=1232" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=1232" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;1232&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;1232&#39;,
+    &#39;大統益&#39;, &#39;100&#39;);">
+                            <input type="hidden" id="hdnMemo_1232" value="很穩">
+                            <input type="hidden" id="hdnResearch_1232" value="">
+                            <input type="hidden" id="hdnStrategy_1232" value="">
+                            <input type="hidden" id="hdnSort_1232" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;1232&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>150</div></td>
+                    <td><div>追蹤價</div><div>100</div></td>
+                    <td><div>最新EPS</div><div>5.34</div></td>
+                    <td><div>預測EPS</div><div>9.54</div></td>
+                </tr>
+            </tbody></table>
+            <table id="1232" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>9.54</td>
+                    <td>7.31</td>
+                    <td>6.54</td>
+                    <td>6.28</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>8.317</td>
+                    <td>5.33</td>
+                    <td>5.2</td>
+                    <td>5.14</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>166.34</td>
+                    <td>106.6</td>
+                    <td>104</td>
+                    <td>102.8</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>11.45%</td>
+                    <td>12.42%</td>
+                    <td>11.64%</td>
+                    <td>8.31%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>7.65%</td>
+                    <td>7.95%</td>
+                    <td>7.28%</td>
+                    <td>7.24%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>8.34%</td>
+                    <td>8.17%</td>
+                    <td>7.45%</td>
+                    <td>7.2%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>6.5%</td>
+                    <td>6.52%</td>
+                    <td>5.99%</td>
+                    <td>5.78%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">很穩</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        鮮活果汁-KY (1256)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;1256&#39;);">
+                        <div id="div_1256" style="display:none;">
+                            <div><a href="https://histock.tw/stock/1256/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/1256/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/1256/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=1256" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=1256" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;1256&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;1256&#39;,
+    &#39;鮮活果汁-KY&#39;, &#39;212.7&#39;);">
+                            <input type="hidden" id="hdnMemo_1256" value="大陸第一果汁">
+                            <input type="hidden" id="hdnResearch_1256" value="">
+                            <input type="hidden" id="hdnStrategy_1256" value="">
+                            <input type="hidden" id="hdnSort_1256" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;1256&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>225</div></td>
+                    <td><div>追蹤價</div><div>212.7</div></td>
+                    <td><div>最新EPS</div><div>3.36</div></td>
+                    <td><div>預測EPS</div><div>6.65</div></td>
+                </tr>
+            </tbody></table>
+            <table id="1256" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>6.65</td>
+                    <td>20.04</td>
+                    <td>16.64</td>
+                    <td>14.19</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>3.575</td>
+                    <td>8.13</td>
+                    <td>4.88</td>
+                    <td>3.49</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>71.5</td>
+                    <td>162.6</td>
+                    <td>97.6</td>
+                    <td>69.8</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>27.66%</td>
+                    <td>38.87%</td>
+                    <td>36.28%</td>
+                    <td>25.91%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>11.2%</td>
+                    <td>21.29%</td>
+                    <td>19.25%</td>
+                    <td>15.79%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>12.47%</td>
+                    <td>21.95%</td>
+                    <td>19.79%</td>
+                    <td>16.02%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>8.06%</td>
+                    <td>15.89%</td>
+                    <td>13.97%</td>
+                    <td>11.48%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">大陸第一果汁</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        鑽全 (1527)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;1527&#39;);">
+                        <div id="div_1527" style="display:none;">
+                            <div><a href="https://histock.tw/stock/1527/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/1527/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/1527/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=1527" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=1527" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;1527&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;1527&#39;,
+    &#39;鑽全&#39;, &#39;&#39;);">
+                            <input type="hidden" id="hdnMemo_1527" value="">
+                            <input type="hidden" id="hdnResearch_1527" value="">
+                            <input type="hidden" id="hdnStrategy_1527" value="">
+                            <input type="hidden" id="hdnSort_1527" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;1527&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>38.15</div></td>
+                    <td><div>追蹤價</div><div></div></td>
+                    <td><div>最新EPS</div><div>2.99</div></td>
+                    <td><div>預測EPS</div><div>5.12</div></td>
+                </tr>
+            </tbody></table>
+            <table id="1527" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>5.12</td>
+                    <td>3.49</td>
+                    <td>3.88</td>
+                    <td>4.72</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>4.314</td>
+                    <td>2.52</td>
+                    <td>2.61</td>
+                    <td>2.76</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>86.28</td>
+                    <td>50.4</td>
+                    <td>52.2</td>
+                    <td>55.2</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>26.79%</td>
+                    <td>25.17%</td>
+                    <td>26.91%</td>
+                    <td>19.22%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>18.22%</td>
+                    <td>15.09%</td>
+                    <td>16.98%</td>
+                    <td>14.17%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>23.66%</td>
+                    <td>15.86%</td>
+                    <td>17.46%</td>
+                    <td>14.35%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>18.5%</td>
+                    <td>12.47%</td>
+                    <td>14.18%</td>
+                    <td>11.62%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4"></td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        廣隆 (1537)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;1537&#39;);">
+                        <div id="div_1537" style="display:none;">
+                            <div><a href="https://histock.tw/stock/1537/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/1537/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/1537/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=1537" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=1537" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;1537&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;1537&#39;,
+    &#39;廣隆&#39;, &#39;&#39;);">
+                            <input type="hidden" id="hdnMemo_1537" value="">
+                            <input type="hidden" id="hdnResearch_1537" value="">
+                            <input type="hidden" id="hdnStrategy_1537" value="">
+                            <input type="hidden" id="hdnSort_1537" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;1537&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>135.5</div></td>
+                    <td><div>追蹤價</div><div></div></td>
+                    <td><div>最新EPS</div><div>6.39</div></td>
+                    <td><div>預測EPS</div><div>9.81</div></td>
+                </tr>
+            </tbody></table>
+            <table id="1537" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>9.81</td>
+                    <td>10.22</td>
+                    <td>10.74</td>
+                    <td>10.64</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>7.79</td>
+                    <td>10</td>
+                    <td>9.7</td>
+                    <td>8.93</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>155.8</td>
+                    <td>200</td>
+                    <td>194</td>
+                    <td>178.6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>21.65%</td>
+                    <td>22.36%</td>
+                    <td>22.25%</td>
+                    <td>15.89%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>13.43%</td>
+                    <td>15.4%</td>
+                    <td>15.41%</td>
+                    <td>13.05%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>16.89%</td>
+                    <td>15.66%</td>
+                    <td>15.58%</td>
+                    <td>13.01%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>13.08%</td>
+                    <td>11.73%</td>
+                    <td>11.67%</td>
+                    <td>9.83%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4"></td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        廣華-KY (1338)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;1338&#39;);">
+                        <div id="div_1338" style="display:none;">
+                            <div><a href="https://histock.tw/stock/1338/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/1338/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/1338/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=1338" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=1338" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;1338&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;1338&#39;,
+    &#39;廣華-KY&#39;, &#39;72&#39;);">
+                            <input type="hidden" id="hdnMemo_1338" value="2013年以來, 獲利、配息穩定,穩定配息2.5以上, 大陸汽車零配件概念股">
+                            <input type="hidden" id="hdnResearch_1338" value="">
+                            <input type="hidden" id="hdnStrategy_1338" value="">
+                            <input type="hidden" id="hdnSort_1338" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;1338&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>49.1</div></td>
+                    <td><div>追蹤價</div><div>72</div></td>
+                    <td><div>最新EPS</div><div>1.32</div></td>
+                    <td><div>預測EPS</div><div>2.34</div></td>
+                </tr>
+            </tbody></table>
+            <table id="1338" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>2.34</td>
+                    <td>4.11</td>
+                    <td>5.62</td>
+                    <td>6.47</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>1.365</td>
+                    <td>3.5</td>
+                    <td>3.9</td>
+                    <td>3.96</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>27.3</td>
+                    <td>70</td>
+                    <td>78</td>
+                    <td>79.2</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>19.05%</td>
+                    <td>22.86%</td>
+                    <td>23.91%</td>
+                    <td>17.08%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>-0.14%</td>
+                    <td>4.61%</td>
+                    <td>6.82%</td>
+                    <td>6.91%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>-1.23%</td>
+                    <td>6.41%</td>
+                    <td>7.99%</td>
+                    <td>7.59%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>-1.57%</td>
+                    <td>4.54%</td>
+                    <td>5.82%</td>
+                    <td>5.65%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">2013年以來, 獲利、配息穩定,穩定配息2.5以上, 大陸汽車零配件概念股</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        和泰車 (2207)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;2207&#39;);">
+                        <div id="div_2207" style="display:none;">
+                            <div><a href="https://histock.tw/stock/2207/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/2207/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/2207/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=2207" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=2207" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;2207&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;2207&#39;,
+    &#39;和泰車&#39;, &#39;300&#39;);">
+                            <input type="hidden" id="hdnMemo_2207" value="">
+                            <input type="hidden" id="hdnResearch_2207" value="">
+                            <input type="hidden" id="hdnStrategy_2207" value="">
+                            <input type="hidden" id="hdnSort_2207" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;2207&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>562</div></td>
+                    <td><div>追蹤價</div><div>300</div></td>
+                    <td><div>最新EPS</div><div>6.37</div></td>
+                    <td><div>預測EPS</div><div>11.29</div></td>
+                </tr>
+            </tbody></table>
+            <table id="2207" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>11.29</td>
+                    <td>25.53</td>
+                    <td>22.69</td>
+                    <td>21.58</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>8.242</td>
+                    <td>14.33</td>
+                    <td>13.4</td>
+                    <td>12.79</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>164.84</td>
+                    <td>286.6</td>
+                    <td>268</td>
+                    <td>255.8</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>2.04%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                    <td>1.88%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>0.26%</td>
+                    <td>7.15%</td>
+                    <td>6.81%</td>
+                    <td>6.36%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4"></td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        上奇 (6123)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;6123&#39;);">
+                        <div id="div_6123" style="display:none;">
+                            <div><a href="https://histock.tw/stock/6123/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/6123/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/6123/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=6123" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=6123" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;6123&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;6123&#39;,
+    &#39;上奇&#39;, &#39;53&#39;);">
+                            <input type="hidden" id="hdnMemo_6123" value="營收持續成長">
+                            <input type="hidden" id="hdnResearch_6123" value="">
+                            <input type="hidden" id="hdnStrategy_6123" value="">
+                            <input type="hidden" id="hdnSort_6123" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;6123&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>54.9</div></td>
+                    <td><div>追蹤價</div><div>53</div></td>
+                    <td><div>最新EPS</div><div>2.52</div></td>
+                    <td><div>預測EPS</div><div>5.15</div></td>
+                </tr>
+            </tbody></table>
+            <table id="6123" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>5.15</td>
+                    <td>4.27</td>
+                    <td>3.87</td>
+                    <td>3.52</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>3.932</td>
+                    <td>2.87</td>
+                    <td>2.62</td>
+                    <td>2.37</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>78.64</td>
+                    <td>57.4</td>
+                    <td>52.4</td>
+                    <td>47.4</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>17.37%</td>
+                    <td>15.76%</td>
+                    <td>16.07%</td>
+                    <td>11.48%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>8.41%</td>
+                    <td>6.72%</td>
+                    <td>6.24%</td>
+                    <td>4.46%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>9.39%</td>
+                    <td>7.18%</td>
+                    <td>6.53%</td>
+                    <td>4.67%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>7.81%</td>
+                    <td>5.87%</td>
+                    <td>5.4%</td>
+                    <td>3.86%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">營收持續成長</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        由田 (3455)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;3455&#39;);">
+                        <div id="div_3455" style="display:none;">
+                            <div><a href="https://histock.tw/stock/3455/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/3455/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/3455/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=3455" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=3455" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;3455&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;3455&#39;,
+    &#39;由田&#39;, &#39;71&#39;);">
+                            <input type="hidden" id="hdnMemo_3455" value="營收持續成長">
+                            <input type="hidden" id="hdnResearch_3455" value="">
+                            <input type="hidden" id="hdnStrategy_3455" value="">
+                            <input type="hidden" id="hdnSort_3455" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;3455&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>82.9</div></td>
+                    <td><div>追蹤價</div><div>71</div></td>
+                    <td><div>最新EPS</div><div>4.5</div></td>
+                    <td><div>預測EPS</div><div>10.84</div></td>
+                </tr>
+            </tbody></table>
+            <table id="3455" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>10.84</td>
+                    <td>5.87</td>
+                    <td>5.03</td>
+                    <td>4.61</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>4.604</td>
+                    <td>3</td>
+                    <td>2.71</td>
+                    <td>2.15</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>92.08</td>
+                    <td>60</td>
+                    <td>54.2</td>
+                    <td>43</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>57.9%</td>
+                    <td>47.56%</td>
+                    <td>44.48%</td>
+                    <td>31.77%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>26.04%</td>
+                    <td>11.29%</td>
+                    <td>10.89%</td>
+                    <td>7.78%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>32.42%</td>
+                    <td>13.46%</td>
+                    <td>10.7%</td>
+                    <td>7.64%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>24.78%</td>
+                    <td>11.88%</td>
+                    <td>9.3%</td>
+                    <td>6.64%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">營收持續成長</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        好樂迪 (9943)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;9943&#39;);">
+                        <div id="div_9943" style="display:none;">
+                            <div><a href="https://histock.tw/stock/9943/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/9943/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/9943/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=9943" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=9943" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;9943&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;9943&#39;,
+    &#39;好樂迪&#39;, &#39;54&#39;);">
+                            <input type="hidden" id="hdnMemo_9943" value="">
+                            <input type="hidden" id="hdnResearch_9943" value="">
+                            <input type="hidden" id="hdnStrategy_9943" value="">
+                            <input type="hidden" id="hdnSort_9943" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;9943&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>57.5</div></td>
+                    <td><div>追蹤價</div><div>54</div></td>
+                    <td><div>最新EPS</div><div>0.95</div></td>
+                    <td><div>預測EPS</div><div>2.29</div></td>
+                </tr>
+            </tbody></table>
+            <table id="9943" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>2.29</td>
+                    <td>3.44</td>
+                    <td>4.23</td>
+                    <td>4.66</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>1.633</td>
+                    <td>4.77</td>
+                    <td>4.46</td>
+                    <td>4.33</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>32.66</td>
+                    <td>95.4</td>
+                    <td>89.2</td>
+                    <td>86.6</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>39.94%</td>
+                    <td>1.1%</td>
+                    <td>23.44%</td>
+                    <td>16.74%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>-13.13%</td>
+                    <td>-129.7%</td>
+                    <td>-70.23%</td>
+                    <td>-50.16%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>-5.86%</td>
+                    <td>-135.21%</td>
+                    <td>-68.97%</td>
+                    <td>-49.27%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>-4.34%</td>
+                    <td>-127.94%</td>
+                    <td>-66.05%</td>
+                    <td>-47.18%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4"></td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        華碩 (2357)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;2357&#39;);">
+                        <div id="div_2357" style="display:none;">
+                            <div><a href="https://histock.tw/stock/2357/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/2357/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/2357/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=2357" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=2357" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;2357&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;2357&#39;,
+    &#39;華碩&#39;, &#39;250&#39;);">
+                            <input type="hidden" id="hdnMemo_2357" value="每年平均有配15元的實力">
+                            <input type="hidden" id="hdnResearch_2357" value="">
+                            <input type="hidden" id="hdnStrategy_2357" value="">
+                            <input type="hidden" id="hdnSort_2357" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;2357&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>232</div></td>
+                    <td><div>追蹤價</div><div>250</div></td>
+                    <td><div>最新EPS</div><div>16.59</div></td>
+                    <td><div>預測EPS</div><div>35.61</div></td>
+                </tr>
+            </tbody></table>
+            <table id="2357" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>35.61</td>
+                    <td>37.36</td>
+                    <td>27.74</td>
+                    <td>26.8</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>24.725</td>
+                    <td>18.33</td>
+                    <td>17.4</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>494.5</td>
+                    <td>366.6</td>
+                    <td>348</td>
+                    <td>340</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>14.01%</td>
+                    <td>17.86%</td>
+                    <td>16.47%</td>
+                    <td>11.77%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>2.17%</td>
+                    <td>6.11%</td>
+                    <td>5.36%</td>
+                    <td>3.83%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>2.56%</td>
+                    <td>7.95%</td>
+                    <td>7.05%</td>
+                    <td>5.04%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>1.96%</td>
+                    <td>6.23%</td>
+                    <td>5.63%</td>
+                    <td>4.02%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">每年平均有配15元的實力</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        聚鼎 (6224)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;6224&#39;);">
+                        <div id="div_6224" style="display:none;">
+                            <div><a href="https://histock.tw/stock/6224/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/6224/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/6224/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=6224" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=6224" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;6224&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;6224&#39;,
+    &#39;聚鼎&#39;, &#39;105&#39;);">
+                            <input type="hidden" id="hdnMemo_6224" value="配息穩定4~5, 不過產業不是很懂">
+                            <input type="hidden" id="hdnResearch_6224" value="">
+                            <input type="hidden" id="hdnStrategy_6224" value="">
+                            <input type="hidden" id="hdnSort_6224" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;6224&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>52.2</div></td>
+                    <td><div>追蹤價</div><div>105</div></td>
+                    <td><div>最新EPS</div><div>0.5</div></td>
+                    <td><div>預測EPS</div><div>0.96</div></td>
+                </tr>
+            </tbody></table>
+            <table id="6224" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>0.96</td>
+                    <td>5.21</td>
+                    <td>4.82</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>0.755</td>
+                    <td>4</td>
+                    <td>3.91</td>
+                    <td>4.01</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>15.1</td>
+                    <td>80</td>
+                    <td>78.2</td>
+                    <td>80.2</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>2.8%</td>
+                    <td>45.05%</td>
+                    <td>46.18%</td>
+                    <td>32.99%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>-20.88%</td>
+                    <td>21.38%</td>
+                    <td>22.63%</td>
+                    <td>16.16%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>-15.11%</td>
+                    <td>24.38%</td>
+                    <td>24.87%</td>
+                    <td>17.77%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>-17.99%</td>
+                    <td>19.67%</td>
+                    <td>20.16%</td>
+                    <td>14.4%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">配息穩定4~5, 不過產業不是很懂</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        全科 (3209)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;3209&#39;);">
+                        <div id="div_3209" style="display:none;">
+                            <div><a href="https://histock.tw/stock/3209/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/3209/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/3209/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=3209" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=3209" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;3209&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;3209&#39;,
+    &#39;全科&#39;, &#39;22&#39;);">
+                            <input type="hidden" id="hdnMemo_3209" value="以技術為導向的網通零組件
+代理商, 21.95以下安心買, 至少有6%, 近幾年持續配股票">
+                            <input type="hidden" id="hdnResearch_3209" value="">
+                            <input type="hidden" id="hdnStrategy_3209" value="">
+                            <input type="hidden" id="hdnSort_3209" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;3209&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>31.4</div></td>
+                    <td><div>追蹤價</div><div>22</div></td>
+                    <td><div>最新EPS</div><div>2.94</div></td>
+                    <td><div>預測EPS</div><div>5.48</div></td>
+                </tr>
+            </tbody></table>
+            <table id="3209" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>5.48</td>
+                    <td>2.63</td>
+                    <td>2.19</td>
+                    <td>2.22</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>4.606</td>
+                    <td>1.23</td>
+                    <td>1.12</td>
+                    <td>1.15</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>92.12</td>
+                    <td>24.6</td>
+                    <td>22.4</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>4.37%</td>
+                    <td>4.3%</td>
+                    <td>4.31%</td>
+                    <td>3.08%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>2.38%</td>
+                    <td>1.69%</td>
+                    <td>1.51%</td>
+                    <td>1.08%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>2.96%</td>
+                    <td>1.47%</td>
+                    <td>1.28%</td>
+                    <td>0.91%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>2.29%</td>
+                    <td>1.16%</td>
+                    <td>1.01%</td>
+                    <td>0.72%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">以技術為導向的網通零組件
+代理商, 21.95以下安心買, 至少有6%, 近幾年持續配股票</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        科誠 (4987)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;4987&#39;);">
+                        <div id="div_4987" style="display:none;">
+                            <div><a href="https://histock.tw/stock/4987/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/4987/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/4987/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=4987" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=4987" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;4987&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;4987&#39;,
+    &#39;科誠&#39;, &#39;59&#39;);">
+                            <input type="hidden" id="hdnMemo_4987" value="營收持續成長">
+                            <input type="hidden" id="hdnResearch_4987" value="">
+                            <input type="hidden" id="hdnStrategy_4987" value="">
+                            <input type="hidden" id="hdnSort_4987" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;4987&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>55</div></td>
+                    <td><div>追蹤價</div><div>59</div></td>
+                    <td><div>最新EPS</div><div>3.21</div></td>
+                    <td><div>預測EPS</div><div>5.52</div></td>
+                </tr>
+            </tbody></table>
+            <table id="4987" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>5.52</td>
+                    <td>4.12</td>
+                    <td>4.61</td>
+                    <td>4.87</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>4.08</td>
+                    <td>3.4</td>
+                    <td>3.68</td>
+                    <td>4.06</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>81.6</td>
+                    <td>68</td>
+                    <td>73.6</td>
+                    <td>81.2</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>40.09%</td>
+                    <td>38.89%</td>
+                    <td>39.18%</td>
+                    <td>27.99%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>17.74%</td>
+                    <td>14.69%</td>
+                    <td>14.87%</td>
+                    <td>10.62%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>18.19%</td>
+                    <td>14.14%</td>
+                    <td>14.87%</td>
+                    <td>10.62%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>13.18%</td>
+                    <td>10.42%</td>
+                    <td>11.22%</td>
+                    <td>8.02%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">營收持續成長</td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <table class="table" id="tbFavorite">
+                <tbody><tr>
+                    <td style="background:lightblue;">
+                        長興 (1717)
+                        <img src="./- MyMoney_files/info_right.png" width="20px" onclick="showInfo(&#39;1717&#39;);">
+                        <div id="div_1717" style="display:none;">
+                            <div><a href="https://histock.tw/stock/1717/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank">檢查季增率</a></div>
+                            <div><a href="https://histock.tw/stock/1717/%E6%AF%8F%E6%9C%88%E7%87%9F%E6%94%B6" target="_blank">檢查YOY、MOM</a></div>
+                            <div><a href="https://histock.tw/stock/1717/%E5%88%A9%E6%BD%A4%E6%AF%94%E7%8E%87" target="_blank">檢查營利率</a></div>
+                            <div><a href="https://goodinfo.tw/StockInfo/StockBzPerformance.asp?STOCK_ID=1717" target="_blank">檢查業外損益</a></div>
+                            <div><a href="https://histock.tw/stock/tchart.aspx?no=1717" target="_blank">K線圖</a></div>
+                            <input type="button" value="刪除" onclick="deleteMyFavorite(&#39;1717&#39;);">
+                            <input type="button" value="編輯" onclick="showDialog(&#39;1717&#39;,
+    &#39;長興&#39;, &#39;23&#39;);">
+                            <input type="hidden" id="hdnMemo_1717" value="穩定配息">
+                            <input type="hidden" id="hdnResearch_1717" value="">
+                            <input type="hidden" id="hdnStrategy_1717" value="">
+                            <input type="hidden" id="hdnSort_1717" value="99999">
+                        </div>
+                        <div onclick="ShowDiv(&#39;1717&#39;,true);">more</div>
+                    </td>
+                    <td><div>市價</div><div>29.85</div></td>
+                    <td><div>追蹤價</div><div>23</div></td>
+                    <td><div>最新EPS</div><div>1.44</div></td>
+                    <td><div>預測EPS</div><div>2.68</div></td>
+                </tr>
+            </tbody></table>
+            <table id="1717" class="table" style="display:none;">
+                <tbody><tr>
+                    <th></th>
+                    <th>預測</th>
+                    <th>三年</th>
+                    <th>五年</th>
+                    <th>七年</th><!--暫用七年, 數字比較正確, 目前沒有10年的資料-->
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>2.68</td>
+                    <td>2.3</td>
+                    <td>1.94</td>
+                    <td>2.08</td>
+                </tr>
+                <tr>
+                    <th>配息</th>
+                    <td>2.196</td>
+                    <td>1.27</td>
+                    <td>1.16</td>
+                    <td>1.3</td>
+                </tr>
+                <tr>
+                    <th>殖利率 5% <br>入場價</th>
+                    <td>43.92</td>
+                    <td>25.4</td>
+                    <td>23.2</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>最新</td>
+                    <td>三年</td>
+                    <td>五年</td>
+                    <td>七年</td>
+                </tr>
+                <tr>
+                    <td>毛利率</td>
+                    <td>21.98%</td>
+                    <td>21.24%</td>
+                    <td>19.68%</td>
+                    <td>14.06%</td>
+                </tr>
+                <tr>
+                    <td>營益率</td>
+                    <td>8.4%</td>
+                    <td>7.27%</td>
+                    <td>6.07%</td>
+                    <td>6.37%</td>
+                </tr>
+                <tr>
+                    <td>稅前淨利率</td>
+                    <td>8.77%</td>
+                    <td>7.99%</td>
+                    <td>6.72%</td>
+                    <td>6.68%</td>
+                </tr>
+                <tr>
+                    <td>稅後淨利率</td>
+                    <td>6.82%</td>
+                    <td>6.42%</td>
+                    <td>5.42%</td>
+                    <td>5.37%</td>
+                </tr>
+
+                <tr>
+                    <th>分析</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>策略</th>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th>備註</th>
+                    <td colspan="4">穩定配息</td>
+                </tr>
+            </tbody></table>
+        </div>
+            </div>
+        </div>
+    
+    <button id="create-user" style="display:none;">Create new user</button>
+    <button id="close-user" style="display:none;">close dialog</button>
+    <!--script area-->
+    <script>
+        function deleteMyFavorite(stockId) {
+            $.ajax({
+                url: "/favorites/APIDeleteMyFavorite",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "stockId": stockId
+                },
+                success: function (res) {
+                    if (res.status == "00") {
+                        alert("OK");
+                        location.reload();
+                    } else {
+                        alert(res.statusDesc);
+                    }
+                },
+                error: function (err) { console.log(err) }
+            });
+        }
+        function editMyFavorite() {
+            //console.log($("#tbFavorite").find('td:eq(2)').html());
+            $.ajax({
+                url: "/favorites/APIEditMyFavorite",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "Id": $("#lblStockId").html(),
+                    "stockId": $("#lblStockId").html(),
+                    "TracePrice": $("#txtTracePrice").val(),
+                    "Memo": $("#txtMemo").val(),
+                    "Research": $("#txtResearch").val(),
+                    "Strategy": $("#txtStrategy").val(),
+                    "Sort": $("#txtSort").val()
+                },
+                success: function (res) {
+                    if (res.status == "00") {
+                        alert("OK");
+                        $("#close-user").click();
+                        location.reload();
+                    } else {
+                        alert(res.statusDesc);
+                    }
+                },
+                error: function (err) { console.log(err) }
+            });
+        }
+        function showDialog(stockId, stockName, TrackPrice) {
+            $("#create-user").click();
+            $("#lblStockId").html(stockId);
+            $("#lblStockName").html(stockName);
+            $("#txtTracePrice").val(TrackPrice);
+            $("#txtMemo").val($("#hdnMemo_" + stockId).val());
+            $("#txtResearch").val($("#hdnResearch_" + stockId).val());
+            $("#txtStrategy").val($("#hdnStrategy_" + stockId).val());
+            $("#txtSort").val($("#hdnSort_" + stockId).val());
+        }
+    </script>
+    <script>
+        $(function () {
+            var dialog, form;
+            // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+            function addUser() {
+                editMyFavorite();
+            }
+
+            dialog = $("#dialog-form").dialog({
+                autoOpen: false,
+                height: 600,
+                width: 600,
+                modal: true,
+                buttons: {
+                    "加入追蹤股": addUser,
+                    Cancel: function () {
+                        dialog.dialog("close");
+                    }
+                },
+                close: function () {
+                    //form[0].reset();
+                    //allFields.removeClass("ui-state-error");
+                }
+            });
+
+            $("#create-user").button().on("click", function () {
+                dialog.dialog("open");
+            });
+            $("#close-user").button().on("click", function () {
+                dialog.dialog("close");
+            });
+        });
+    </script>
+    <script>
+        function showInfo(stockid) {
+            if ($('#div_' + stockid).is(":hidden")) {
+                $('#div_' + stockid).fadeIn(3);
+            } else {
+                $('#div_' + stockid).fadeOut(3);
+            }
+        }
+    </script>
+
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            © 2021 - MyMoney - <a href="http://127.0.0.1:8081/Home/Privacy">Privacy</a>
+        </div>
+    </footer>
+    
+    <script src="./- MyMoney_files/bootstrap.bundle.min.js.下載"></script>
+    <script src="./- MyMoney_files/site.js.下載"></script>
+    
+
+
+<div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-dialog-buttons ui-draggable ui-resizable" aria-describedby="dialog-form" aria-labelledby="ui-id-1" style="display: none; position: absolute;"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">編輯追蹤股</span><button type="button" class="ui-dialog-titlebar-close"></button></div><div id="dialog-form" class="ui-dialog-content ui-widget-content">
+        <form>
+            <fieldset>
+                <table>
+                    <tbody><tr>
+                        <td>代號</td>
+                        <td id="lblStockId"></td>
+                    </tr>
+                    <tr>
+                        <td>名稱</td>
+                        <td id="lblStockName"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="txtTracePrice">追蹤價</label></td>
+                        <td><input type="number" name="txtTracePrice" id="txtTracePrice" value="" class="text ui-widget-content ui-corner-all"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="txtMemo">備註</label></td>
+                        <td><textarea rows="3" cols="60" name="txtMemo" id="txtMemo" class="text ui-widget-content ui-corner-all"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="txtResearch">分析</label></td>
+                        <td><textarea rows="3" cols="60" name="txtResearch" id="txtResearch" class="text ui-widget-content ui-corner-all"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="txtStrategy">策略</label></td>
+                        <td><textarea rows="3" cols="60" name="txtStrategy" id="txtStrategy" class="text ui-widget-content ui-corner-all"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="txtSort">排序</label></td>
+                        <td><input type="text" id="txtSort" name="txtSort"></td>
+                    </tr>
+                </tbody></table>
+                <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+            </fieldset>
+        </form>
+    </div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button">加入追蹤股</button><button type="button">Cancel</button></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div></body></html>
